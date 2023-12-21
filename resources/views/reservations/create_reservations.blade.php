@@ -5,6 +5,13 @@
         <h1 class="text-center text-xl py-2">Crear reservación</h1>
         <h3 class="text-center text-xl py-0">Complete el formulario para crear la  reservación</h3>
         <div class="container mx-auto mt-8 flex justify-center">
+            <div style="margin: 0 auto; width:80%">
+                @if(Session::has('reservacion_create'))
+                    <div class="col-lg-12 alert alert-success bg-green-500 text-white alert-dismissable text-center font-bold">
+                        {{ Session::get('reservacion_create') }}
+                    </div>
+                @endif
+            </div>
             <form class="w-full max-w-md" action="{{ route('create_reservations') }}" method="post">
                 @csrf
                 <div class="mb-4">
@@ -12,8 +19,8 @@
                     <input type="text" name="name" id="name" class="border rounded w-full py-2 px-3">
                 </div>
                 <div class="mb-4">
-                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Documento:</label>
-                    <input type="text" name="name" id="name" class="border rounded w-full py-2 px-3">
+                    <label for="documento" class="block text-gray-700 text-sm font-bold mb-2">Documento:</label>
+                    <input type="text" name="documento" id="documento" class="border rounded w-full py-2 px-3">
                 </div>
                 <div class="mb-4">
                     <label for="date" class="block text-gray-700 text-sm font-bold mb-2">Fecha:</label>
@@ -21,8 +28,12 @@
                 </div>
 
                 <div class="mb-4">
-                    <label for="details" class="block text-gray-700 text-sm font-bold mb-2">Detalles:</label>
-                    <textarea name="details" id="details" class="border rounded w-full py-2 px-3"></textarea>
+                    <label for="cuarto" class="block text-gray-700 text-sm font-bold mb-2">Cuarto:</label>
+                    <select name="documento" id="documento" class="border rounded w-full py-2 px-3">
+                        @for ($i = 1; $i <= 10; $i++)
+                            <option value="{{ $i }}">{{ $i }}</option>
+                        @endfor
+                    </select>
                 </div>
 
                 <div class="flex justify-end"> <!-- Agregada la clase flex justify-end para alinear a la derecha -->
