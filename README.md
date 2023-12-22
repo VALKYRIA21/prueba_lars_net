@@ -7,10 +7,13 @@ Escriba un algoritmo en Laravel que gestione las reservaciones de habitaciones d
 
 
 REQUISITOS:
-• MANEJO DE CONCURRENCIA: Implemente bloqueo optimista para manejar la concurrencia en las reservaciones. Cuando un cliente intenta reservar una habitación, el sistema debe verificar si la versión de la disponibilidad de la
-habitación es la misma que cuando la cargó. Si no lo es, la reserva debe fallar y el cliente debe ser notificado para intentarlo de nuevo.
+• MANEJO DE CONCURRENCIA: Implemente bloqueo optimista para manejar la concurrencia en las reservaciones. Cuando un cliente intenta reservar una habitación, el sistema debe verificar si la versión de la disponibilidad de la habitación es la misma que cuando la cargó. Si no lo es, la reserva debe fallar y el cliente debe ser notificado para intentarlo de nuevo.
+
 • EVENTOS Y COLAS: Cuando se realiza una reserva, un evento debe ser despachado y manejado de forma asincrónica por un trabajador de cola. Este evento realizará las acciones necesarias para finalizar la reserva (p.ej., enviar una confirmación por correo electrónico).
+
 • ROLLBACKS DE TRANSACCIÓN: En caso de que ocurra un error durante la reserva, asegúrese de que cualquier cambio en la base de datos sea revertido.
+
+
 ASPECTOS TÉCNICOS A CONSIDERAR:
 1. MIGRACIONES Y MODELOS: Defina las migraciones y modelos necesarios con atributos como version o timestamp para el bloqueo optimista.
 2. CONTROLADORES Y RUTAS: Cree los controladores y rutas necesarios para manejar las solicitudes de API relacionadas con la reserva.
