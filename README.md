@@ -1,7 +1,11 @@
 # Nombre del Proyecto
 
 GESTIÓN DE CONCURRENCIA EN RESERVAS CON EVENTOS ASINCRÓNICOS
+
+
 Escriba un algoritmo en Laravel que gestione las reservaciones de habitaciones de hotel en un entorno de alta concurrencia, asegurando la integridad de los datos. Además, este algoritmo debe integrar un sistema de eventos y colas para procesar las reservas de forma asincrónica.
+
+
 REQUISITOS:
 • MANEJO DE CONCURRENCIA: Implemente bloqueo optimista para manejar la concurrencia en las reservaciones. Cuando un cliente intenta reservar una habitación, el sistema debe verificar si la versión de la disponibilidad de la
 habitación es la misma que cuando la cargó. Si no lo es, la reserva debe fallar y el cliente debe ser notificado para intentarlo de nuevo.
