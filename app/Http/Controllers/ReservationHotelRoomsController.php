@@ -45,8 +45,9 @@ class ReservationHotelRoomsController extends Controller
             $reservation->version_disponibilidad_reservacion= 1;
             $reservation->save();
 
-            event(new ReservationCreated($reservation));
 
+            event(new ReservationCreated($reservation));
+            event(new ReservationCompleted($reservation));
 
 
             DB::commit();
