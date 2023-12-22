@@ -17,8 +17,7 @@ return new class extends Migration
             $table->string('documento_usuario')->unique()->nullable();
             $table->string('fecha_reservacion')->nullable();
             $table->string('cuarto_reservacion')->nullable();
-            // Disponible, no disponible, usaré 1 para disponible, 0 para no disponible
-            $table->string('disponibilidad')->nullable();
+            $table->string('version_disponibilidad_reservacion')->default(1);;
             $table->timestamps();
         });
     }

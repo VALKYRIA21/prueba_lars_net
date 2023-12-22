@@ -30,7 +30,7 @@
                         @endfor
                     </select>
                 </div>
-                <div class="flex justify-end"> <!-- Agregada la clase flex justify-end para alinear a la derecha -->
+                <div class="flex justify-end">
                     <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md">Verificar Reservación</button>
                 </div>
             </form>

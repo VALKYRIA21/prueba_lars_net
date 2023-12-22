@@ -4,13 +4,20 @@
         <br>
         <h1 class="text-center text-xl py-2">Crear reservación</h1>
         <h3 class="text-center text-xl py-0">Complete el formulario para crear la  reservación</h3>
+        <center>
+            @if(Session::has('reservacion_create'))
+                <div class="col-lg-12 alert alert-success bg-green-500 text-white alert-dismissable text-center font-bold">
+                    {{ Session::get('reservacion_create') }}
+                </div>
+            @endif
+            @if(Session::has('error'))
+                <div class="col-lg-12 alert alert-danger bg-red-500 text-white alert-dismissable text-center font-bold">
+                    {{ Session::get('error') }}
+                </div>
+            @endif
+        </center>
         <div class="container mx-auto mt-8 flex justify-center">
-            <div style="margin: 0 auto; width:80%">
-                @if(Session::has('reservacion_create'))
-                    <div class="col-lg-12 alert alert-success bg-green-500 text-white alert-dismissable text-center font-bold">
-                        {{ Session::get('reservacion_create') }}
-                    </div>
-                @endif
+            <div style="text-center">
             </div>
             <form class="w-full max-w-md" action="{{ route('create_reservations') }}" method="post">
                 @csrf
@@ -29,14 +36,14 @@
 
                 <div class="mb-4">
                     <label for="cuarto" class="block text-gray-700 text-sm font-bold mb-2">Cuarto:</label>
-                    <select name="documento" id="documento" class="border rounded w-full py-2 px-3">
+                    <select name="cuarto" id="cuarto" class="border rounded w-full py-2 px-3">
                         @for ($i = 1; $i <= 10; $i++)
                             <option value="{{ $i }}">{{ $i }}</option>
                         @endfor
                     </select>
                 </div>
 
-                <div class="flex justify-end"> <!-- Agregada la clase flex justify-end para alinear a la derecha -->
+                <div class="flex justify-end">
                     <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md">Crear Reservación</button>
                 </div>
             </form>
